@@ -143,7 +143,7 @@
 const DIMENSIONS={pace:'生活节奏',career:'机会野心',cost:'成本弹性',warmth:'气候偏好',social:'烟火社交',nature:'自然亲近',culture:'文化审美',order:'秩序边界'};
 const KICKERS={pace:'生活节奏',career:'事业与成长',cost:'消费与空间',warmth:'身体的天气',social:'人与烟火',nature:'自然半径',culture:'精神生活',order:'城市秩序'};
 const PAYMENT_URL=''; // 接入真实收款后填写支付页面地址；生产环境还需服务端校验支付结果。
-const PREVIEW_PAYMENT=new URLSearchParams(location.search).has('previewPay');
+const PREVIEW_PAYMENT=['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).has('previewPay');
 const Q=(dim,text,choices)=>({dim,text,choices:choices.map((t,i)=>({text:t,value:[10,38,68,94][i]}))});
 const questions=[
 Q('pace','一个完全属于你的周六，最理想的打开方式是？',['睡到自然醒，慢慢吃顿早餐','上午处理杂事，下午随心安排','排满两三个目的地，充实才安心','从早到晚高效推进，越忙越有能量']),
