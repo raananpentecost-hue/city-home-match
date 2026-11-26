@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#153b36">
+  <meta name="description" content="40道生活偏好题，测出最适合你长期定居的城市。">
+  <title>哪座城市最适合你定居？</title>
+  <style>
+    :root{--ink:#17332e;--muted:#66736e;--paper:#f5f0e6;--card:#fffdf7;--green:#153b36;--jade:#39766a;--red:#c94e38;--gold:#bd8b3a;--line:rgba(23,51,46,.14);--shadow:0 24px 70px rgba(25,55,48,.14)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;font-size:16px;line-height:1.65}
+    button{font:inherit}button:focus-visible{outline:3px solid rgba(201,78,56,.35);outline-offset:3px}.shell{min-height:100vh;position:relative;overflow:hidden}.shell:before,.shell:after{content:"";position:fixed;border:1px solid rgba(21,59,54,.1);border-radius:50%;pointer-events:none}.shell:before{width:420px;height:420px;left:-230px;top:-180px}.shell:after{width:300px;height:300px;right:-190px;bottom:-100px}
+    .view{display:none;min-height:100vh}.view.active{display:flex;animation:fade .45s ease both}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .hero{width:min(1160px,100%);margin:auto;padding:48px 28px;display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;letter-spacing:.18em;font-weight:700}.eyebrow:before{content:"";width:32px;height:2px;background:var(--red)}
+    h1{font-family:"STSong","Songti SC",serif;font-weight:700;line-height:1.06;font-size:clamp(3rem,7vw,6.4rem);letter-spacing:-.055em;margin:18px 0 24px}.hero h1 span{display:block;color:var(--red)}.lead{font-size:clamp(1.05rem,1.8vw,1.28rem);max-width:570px;color:#40554f}.facts{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0}.pill{border:1px solid var(--line);border-radius:100px;padding:8px 14px;font-size:.88rem;background:rgba(255,255,255,.38)}
+    .btn{border:0;border-radius:14px;padding:15px 24px;font-weight:800;cursor:pointer;transition:.2s transform,.2s box-shadow,.2s background}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--green);color:#fff;box-shadow:0 12px 30px rgba(21,59,54,.24)}.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}.actions{display:flex;gap:12px;flex-wrap:wrap}.fine{margin-top:16px;color:var(--muted);font-size:.8rem}
+    .map-card{background:var(--green);border-radius:30px;min-height:530px;color:#fff;position:relative;overflow:hidden;box-shadow:var(--shadow);padding:34px}.map-card:before{content:"";position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.22) 1px,transparent 1px);background-size:54px 54px;transform:rotate(-8deg) scale(1.3)}.compass{position:absolute;width:250px;height:250px;border:1px solid rgba(255,255,255,.28);border-radius:50%;right:-34px;top:45px}.compass:before,.compass:after{content:"";position:absolute;background:rgba(255,255,255,.26);left:50%;top:8%;bottom:8%;width:1px}.compass:after{transform:rotate(90deg)}.coordinate{position:absolute;bottom:34px;left:34px;right:34px}.coordinate small{letter-spacing:.18em;opacity:.6}.coordinate strong{display:block;font-family:"STSong",serif;font-size:2.4rem;margin-top:8px}.route{position:absolute;left:15%;top:23%;width:60%;height:44%;border:2px dashed rgba(255,255,255,.42);border-color:transparent transparent rgba(255,255,255,.42) rgba(255,255,255,.42);border-radius:50%;transform:rotate(-12deg)}.dot{position:absolute;width:15px;height:15px;background:#f0b459;border:4px solid rgba(255,255,255,.3);border-radius:50%;box-shadow:0 0 0 8px rgba(240,180,89,.12)}.d1{left:25%;top:33%}.d2{left:58%;top:58%}.d3{left:70%;top:25%}
+    .quiz-wrap{width:min(760px,100%);margin:0 auto;padding:26px 22px 48px;flex-direction:column}.quiz-top{display:flex;align-items:center;gap:18px;margin-bottom:58px}.progress-track{height:7px;flex:1;background:rgba(21,59,54,.1);border-radius:99px;overflow:hidden}.progress-bar{height:100%;background:var(--red);width:2.5%;transition:width .4s ease}.counter{font-variant-numeric:tabular-nums;font-weight:800;font-size:.88rem}.back{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--ink);font-size:1.2rem}.back:disabled{opacity:.25;cursor:not-allowed}
+    .question-card{margin:auto 0}.q-kicker{color:var(--red);font-size:.8rem;letter-spacing:.14em;font-weight:800}.question-card h2{font-family:"STSong","Songti SC",serif;font-size:clamp(1.8rem,4.8vw,2.75rem);line-height:1.3;margin:12px 0 30px}.options{display:grid;gap:13px}.option{width:100%;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;padding:18px 20px;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:15px;transition:.18s ease;box-shadow:0 6px 24px rgba(25,55,48,.04)}.option:hover{border-color:rgba(21,59,54,.4);transform:translateX(4px)}.option.selected{background:var(--green);color:#fff;border-color:var(--green)}.letter{width:32px;height:32px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:.78rem;font-weight:800;opacity:.72;flex:0 0 auto}.quiz-tip{text-align:center;color:var(--muted);font-size:.78rem;margin-top:24px}
+    .loading{width:min(640px,100%);margin:auto;padding:32px;text-align:center;flex-direction:column;align-items:center;justify-content:center}.seal{width:100px;height:100px;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;font-family:"STSong",serif;font-size:1.5rem;transform:rotate(7deg);margin-bottom:28px}.loading h2{font-family:"STSong",serif;font-size:2rem}.loading-line{width:260px;height:4px;background:rgba(21,59,54,.1);overflow:hidden;border-radius:99px}.loading-line i{display:block;height:100%;background:var(--red);animation:load 1.5s ease both}@keyframes load{from{width:0}to{width:100%}}
+    .result-wrap{width:min(980px,100%);margin:0 auto;padding:34px 22px 64px}.view.result-wrap{display:none}.view.result-wrap.active{display:block}.result-head{text-align:center;margin:12px 0 30px}.result-head .eyebrow{justify-content:center}.result-head h2{font-family:"STSong",serif;font-size:clamp(2rem,5vw,3.4rem);margin:12px 0 4px}.result-card{background:var(--green);color:#fff;border-radius:28px;padding:clamp(26px,5vw,54px);box-shadow:var(--shadow);position:relative;overflow:hidden}.result-card:before{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-190px;top:-170px}.result-grid{display:grid;grid-template-columns:1fr .82fr;gap:46px;position:relative}.result-label{font-size:.75rem;letter-spacing:.2em;opacity:.62}.city-cn{font-family:"STSong",serif;font-size:clamp(4rem,11vw,7.5rem);line-height:.95;margin:14px 0 4px;letter-spacing:-.08em}.city-en{letter-spacing:.35em;color:#efbd6a}.tagline{font-family:"STSong",serif;font-size:1.35rem;margin:28px 0 12px}.summary{opacity:.86;max-width:560px}.match-box{border-left:1px solid rgba(255,255,255,.22);padding-left:36px;display:flex;flex-direction:column;justify-content:center}.match-num{font-size:5rem;font-weight:300;line-height:1}.match-num small{font-size:1.2rem}.match-box p{opacity:.66}.city-stamp{display:inline-flex;border:1px solid rgba(255,255,255,.35);padding:6px 10px;font-size:.72rem;letter-spacing:.14em;align-self:flex-start;margin-top:24px}
+    .section{margin-top:26px;background:var(--card);border-radius:24px;padding:clamp(24px,4vw,38px);border:1px solid var(--line)}.section h3{font-family:"STSong",serif;font-size:1.6rem;margin:0 0 20px}.reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.reason{padding:18px;border-radius:16px;background:#f2eee4}.reason b{display:block;color:var(--red);margin-bottom:6px}.tradeoff{border-left:4px solid var(--gold);padding-left:18px}.top3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.rank{border:1px solid var(--line);border-radius:18px;padding:18px}.rank span{font-size:.74rem;color:var(--muted)}.rank strong{display:block;font-family:"STSong",serif;font-size:1.55rem;margin:4px 0}.bars{display:grid;gap:12px}.bar-row{display:grid;grid-template-columns:74px 1fr 38px;align-items:center;gap:12px;font-size:.85rem}.bar-bg{height:8px;background:rgba(21,59,54,.09);border-radius:99px;overflow:hidden}.bar-fill{height:100%;background:var(--jade);border-radius:99px}.result-actions{justify-content:center;margin-top:28px}.disclaimer{text-align:center;color:var(--muted);font-size:.75rem;max-width:720px;margin:24px auto 0}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:38px;gap:34px}.map-card{min-height:330px}.compass{width:190px;height:190px}.quiz-top{margin-bottom:35px}.result-grid{grid-template-columns:1fr}.match-box{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding:24px 0 0}.reasons,.top3{grid-template-columns:1fr}.city-cn{font-size:4.6rem}.result-card{border-radius:22px}.bar-row{grid-template-columns:64px 1fr 34px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <section id="home" class="view active">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">CITY COMPASS · 城市罗盘</div>
+        <h1>哪座城市<span>最适合你定居？</span></h1>
+        <p class="lead">你想要的从来不只是一个地名，而是一种每天醒来都愿意继续的生活。用 40 个真实选择，找到与你同频的城市。</p>
+        <div class="facts"><span class="pill">40 道生活情境</span><span class="pill">12 座候选城市</span><span class="pill">约 6 分钟</span><span class="pill">本地计算 · 不收集信息</span></div>
+        <div class="actions"><button class="btn btn-primary" id="startBtn">开始寻找我的城市</button><button class="btn btn-ghost" id="resumeBtn" hidden>继续上次答题</button></div>
+        <p class="fine">趣味偏好测试，并非迁居、求职、购房或投资建议。</p>
+      </div>
+      <div class="map-card" aria-hidden="true"><div class="compass"></div><div class="route"></div><i class="dot d1"></i><i class="dot d2"></i><i class="dot d3"></i><div class="coordinate"><small>N 18°10′ — 41°03′ · E 102°42′ — 121°29′</small><strong>你的生活，会落在哪个坐标？</strong></div></div>
+    </div>
+  </section>
+
+  <section id="quiz" class="view quiz-wrap">
+    <div class="quiz-top"><button class="back" id="backBtn" aria-label="上一题">←</button><div class="progress-track"><div class="progress-bar" id="progress"></div></div><span class="counter" id="counter">01 / 40</span></div>
+    <article class="question-card"><div class="q-kicker" id="qKicker">生活节奏</div><h2 id="qText"></h2><div class="options" id="options"></div><p class="quiz-tip">凭第一反应选择，没有正确答案</p></article>
+  </section>
+
+  <section id="loading" class="view loading"><div class="seal">寻城</div><h2>正在校准你的城市坐标…</h2><p>把生活节奏、机会偏好与烟火浓度拼成一张地图</p><div class="loading-line"><i></i></div></section>
+
+  <section id="result" class="view result-wrap">
+    <header class="result-head"><div class="eyebrow">YOUR CITY MATCH</div><h2>你的理想定居坐标已找到</h2></header>
+    <div class="result-card" id="shareCard"><div class="result-grid"><div><div class="result-label">最适合你长期生活的城市</div><div class="city-cn" id="cityName">成都</div><div class="city-en" id="cityEn">CHENGDU</div><div class="tagline" id="tagline"></div><p class="summary" id="summary"></p><div class="city-stamp" id="persona"></div></div><div class="match-box"><div class="match-num"><span id="matchScore">92</span><small>%</small></div><p>生活偏好契合度</p><span>不是“最好的城市”<br>而是“更像你的日子”</span></div></div></div>
+    <div class="section"><h3>为什么会是这里</h3><div class="reasons" id="reasons"></div></div>
+    <div class="section"><h3>真正住下前，你也要知道</h3><p class="tradeoff" id="tradeoff"></p></div>
+    <div class="section"><h3>你的城市偏好画像</h3><div class="bars" id="bars"></div></div>
+    <div class="section"><h3>另外两座，也可能让你心动</h3><div class="top3" id="top3"></div></div>
+    <div class="actions result-actions"><button class="btn btn-primary" id="saveCardBtn">保存结果卡</button><button class="btn btn-ghost" id="copyBtn">复制分享文案</button><button class="btn btn-ghost" id="restartBtn">重新测试</button></div>
+    <p class="disclaimer">结果反映你当前的生活偏好。真实定居还应考虑工作、家庭、健康、预算、住房、教育与试住体验；同一城市不同区域的生活差异也可能很大。</p>
+  </section>
+</main>
+<canvas id="cardCanvas" width="1080" height="1440" hidden></canvas>
+<script>
+const DIMENSIONS={pace:'生活节奏',career:'机会野心',cost:'成本弹性',warmth:'气候偏好',social:'烟火社交',nature:'自然亲近',culture:'文化审美',order:'秩序边界'};
+const KICKERS={pace:'生活节奏',career:'事业与成长',cost:'消费与空间',warmth:'身体的天气',social:'人与烟火',nature:'自然半径',culture:'精神生活',order:'城市秩序'};
+const Q=(dim,text,choices)=>({dim,text,choices:choices.map((t,i)=>({text:t,value:[10,38,68,94][i]}))});
+const questions=[
+Q('pace','一个完全属于你的周六，最理想的打开方式是？',['睡到自然醒，慢慢吃顿早餐','上午处理杂事，下午随心安排','排满两三个目的地，充实才安心','从早到晚高效推进，越忙越有能量']),
+Q('pace','你对“城市很大、通勤很久”的真实态度？',['十几分钟最好，时间要留给生活','半小时左右可以接受','只要值得，四五十分钟也行','机会够好，多换乘也不是问题']),
+Q('pace','咖啡店排队二十分钟，你会怎么想？',['直接换一家，生活不该被排队绑架','看心情，今天有空就等等','热门店排队很正常','排队时也能回消息处理事情']),
+Q('pace','你最舒服的工作节奏更像哪一种？',['稳定可预期，下班就切换生活','忙一阵歇一阵，张弛有度','目标密集、反馈及时','高强度竞争让我兴奋']),
+Q('pace','走在路上，你更喜欢周围的人？',['慢慢走，街上有闲散感','不急不慢，各有自己的节奏','步子利落，大家都很有目的','整座城像按了倍速键']),
+Q('career','面对一份高压但上升快的工作，你会？',['大概率拒绝，持续舒服更重要','看阶段，短期可以冲一冲','如果成长明确，我愿意承受','越有挑战越想试']),
+Q('career','选择城市时，头部公司和行业资源有多重要？',['不是重点，有合适工作即可','有会加分，但不必顶配','很重要，会影响我的选择','几乎是首要条件']),
+Q('career','你更想成为哪种职场人？',['边界清晰、安稳可靠','专业扎实、有自己的节奏','不断升级、能独当一面','站在更大的牌桌上创造机会']),
+Q('career','如果朋友邀请你一起创业，你的第一反应？',['风险太高，不太适合我','先小范围试水','方向靠谱就认真评估','太好了，立刻聊商业模型']),
+Q('career','五年后的理想生活里，事业占多大位置？',['够用就好，生活才是主体','事业与生活各占一半','事业是重要成就来源','希望做出有影响力的事']),
+Q('cost','为了喜欢的城市氛围，你愿意承担多高的居住成本？',['性价比必须优先','可以稍贵，但不能挤压日常','愿意为地段与便利付费','只要机会和体验够好，贵也接受']),
+Q('cost','同样预算，你更愿意换来什么？',['更大空间和更低压力','安静舒适、功能够用','便利地段和丰富配套','核心区域与稀缺体验']),
+Q('cost','看到网红餐厅人均三四百，你会？',['完全没必要，巷子小店更香','特殊日子可以安排','环境和味道好就值得','新鲜体验本身就是价值']),
+Q('cost','每月房租或房贷占收入的理想比例？',['越低越好，最好两成以内','两三成可以接受','为了位置可到三四成','阶段性更高也能承受']),
+Q('cost','你对“用钱换时间”的看法？',['能自己做就不花钱','关键时候会用','大多数时候值得','效率优先，能外包就外包']),
+Q('warmth','如果只能二选一，你更怕哪种天气？',['闷热潮湿比冷更难受','略怕热，但四季都能适应','略怕冷，更喜欢温暖','非常怕冷，冬天越短越好']),
+Q('warmth','你最期待的冬日画面是？',['落雪、暖气、穿大衣','清冷阳光，四季分明','薄外套就能出门','阳光充足，几乎没有冬天']),
+Q('warmth','连着一周阴雨天，你的状态会？',['挺治愈，喜欢湿润氛围','没什么影响','有点烦，需要见太阳','心情明显下降，想逃去晴天']),
+Q('warmth','盛夏三十五度以上，你能接受多久？',['一天都嫌多','偶尔几天可以','开空调就能扛','比寒冬好，我适应炎热']),
+Q('warmth','你喜欢空气里的体感是？',['干爽清冽','凉润舒适','温暖湿润','热烈、有海风或季风']),
+Q('social','搬到新城市后，你希望怎么认识朋友？',['随缘，保留大量独处','小圈子慢慢熟起来','参加活动，主动拓展同好','人越多越兴奋，随时能组局']),
+Q('social','楼下最让你安心的声音是什么？',['安静到能听见树叶','咖啡店与书店的轻声交谈','菜市场、早点摊的人声','夜市与宵夜档一直热闹']),
+Q('social','周五晚上，你更想？',['回家关门，彻底独处','看电影或逛展','约三五好友吃饭聊天','去热闹的地方玩到尽兴']),
+Q('social','你对“熟人社会”的感受？',['边界太近会有压力','保持礼貌距离最好','有点人情味很温暖','喜欢被记住、被招呼的感觉']),
+Q('social','理想社区更像？',['安静、私密、互不打扰','有审美但不过度社交','邻里友好，配套有人气','出门就是市集与夜生活']),
+Q('nature','你愿意为“周末说走就走看风景”牺牲一点便利吗？',['不太愿意，城市配套更重要','偶尔可以','愿意，自然很影响幸福感','非常愿意，山海就是刚需']),
+Q('nature','你理想的窗外是什么？',['整齐城市天际线','梧桐街道或公园','湖泊、江河或海岸','山野和大片天空']),
+Q('nature','休息日最能给你充电的活动？',['在家享受现代便利','城市散步和公园野餐','骑行、看海、轻徒步','进山露营或长距离户外']),
+Q('nature','如果每天都能接近一种自然景观，你选？',['城市绿地就够了','河流与湖泊','海岸与落日','山脉、森林与旷野']),
+Q('nature','你能接受小城市配套少一点，换取自然环境吗？',['不能，便利最重要','只能少一点点','大体愿意','完全愿意']),
+Q('culture','一座城市最吸引你的精神气质是？',['务实直接、讲效率','现代开放、国际化','有历史层次与书卷气','松弛自由、艺术感强']),
+Q('culture','旅行时你最容易在哪类地方待很久？',['新商圈与科技展馆','设计街区与潮流店铺','博物馆、古建与老街','独立书店、展览与音乐现场']),
+Q('culture','你希望城市给你的身份感是？',['专业、进取','精致、现代','有底蕴、有归属','独特、自由、不被定义']),
+Q('culture','选一条最想常走的街？',['摩天楼下的高效街区','沿江现代建筑与精品店','老城梧桐、院落与古迹','小店、咖啡、涂鸦与艺术空间']),
+Q('culture','对本地历史和城市记忆，你会？',['很少关注，实用更重要','偶尔了解','会主动探索','它会决定我是否爱上一座城']),
+Q('order','你喜欢怎样的公共空间？',['自由随性，热闹一点也无妨','有人情味，规则别太僵','秩序明确、维护良好','安静克制、边界感很强']),
+Q('order','约好七点见面，对方迟到十五分钟，你会？',['没事，慢慢来','提醒一下即可','有点不舒服','很介意，时间边界要清楚']),
+Q('order','你更欣赏哪种城市性格？',['包容松弛，允许“不标准”','灵活圆融，好沟通','规则清晰、办事高效','精确可靠、公共秩序稳定']),
+Q('order','在人际关系里，你更需要？',['热情真诚胜过分寸','熟络自然，不必太客套','礼貌清晰，各自舒服','高度尊重隐私与边界']),
+Q('order','遇到复杂流程，你希望？',['有人情变通的余地','能商量就好','规则透明、照章执行','线上化、标准化、少沟通']),
+];
+
+const cities=[
+{name:'成都',en:'CHENGDU',p:{pace:28,career:55,cost:35,warmth:58,social:86,nature:65,culture:78,order:38},persona:'松弛烟火家',tag:'把过日子，当成一件正经事。',summary:'你需要的不是停摆，而是一座允许你在努力之外，仍有茶馆、夜宵和朋友的城市。成都的松弛与烟火，能把你的日常重新还给你。',reasons:['快慢可切换','社交有温度','文化与自然兼得'],tradeoff:'阴雨与湿度、热门区域的拥挤，以及并非所有行业都拥有一线城市的机会密度，可能需要你提前试住和核对职业路径。'},
+{name:'上海',en:'SHANGHAI',p:{pace:88,career:94,cost:96,warmth:52,social:58,nature:28,culture:92,order:92},persona:'精致进阶者',tag:'野心与体面，可以同时存在。',summary:'你欣赏清晰规则、专业效率和丰富审美，也愿意为更大的舞台支付成本。上海让你保持边界，也不断遇见新标准。',reasons:['机会密度高','秩序与边界清晰','审美体验丰富'],tradeoff:'居住成本、通勤和持续竞争会放大压力。你需要稳定现金流，也要为自己保留不被效率吞没的生活半径。'},
+{name:'深圳',en:'SHENZHEN',p:{pace:94,career:96,cost:84,warmth:92,social:60,nature:52,culture:48,order:82},persona:'高速开拓者',tag:'年轻的人，先把可能性跑出来。',summary:'你被速度、成长和从零开始的机会激活。深圳不太问来处，更在意你现在能做什么，适合把人生当成长期产品迭代的你。',reasons:['成长反馈快','年轻与包容','温暖气候'],tradeoff:'高强度工作、居住成本和城市记忆感偏弱可能让你疲惫。别只看岗位，也要确认下班后的生活能否成立。'},
+{name:'北京',en:'BEIJING',p:{pace:90,career:98,cost:91,warmth:25,social:54,nature:45,culture:96,order:70},persona:'理想攻坚者',tag:'你想站上更大的牌桌，也想靠近思想的源头。',summary:'你看重顶级资源、行业中心与文化厚度，愿意为了更高天花板穿过一段高压周期。北京适合目标感强、精神胃口也很大的你。',reasons:['顶级资源集中','文化厚度极高','四季与城市尺度'],tradeoff:'通勤、干燥寒冬和高生活成本都很真实。确定工作地点后再选居住区，比笼统地“去北京”重要得多。'},
+{name:'杭州',en:'HANGZHOU',p:{pace:72,career:84,cost:78,warmth:58,social:48,nature:88,culture:86,order:76},persona:'山水创造者',tag:'一边向前，一边给生活留白。',summary:'你既舍不得成长机会，也离不开山水与审美。杭州把互联网的速度和湖山的留白放在同一张日程表里，适合会主动调节节奏的你。',reasons:['产业与自然并存','审美氛围在线','生活方式多样'],tradeoff:'湿热天气、热门板块成本和通勤拥堵可能削弱“诗意滤镜”。先按工作半径选区，再谈西湖边的生活。'},
+{name:'广州',en:'GUANGZHOU',p:{pace:68,career:78,cost:62,warmth:94,social:92,nature:42,culture:72,order:55},persona:'务实生活家',tag:'认真搞事业，也认真吃每一顿饭。',summary:'你喜欢真实、包容和不端着的城市关系。广州给你一线城市的机会，也保留街坊、早茶和市井感，适合务实又热爱生活的你。',reasons:['机会与生活平衡','烟火气浓','包容务实'],tradeoff:'漫长湿热季、部分区域的老旧感和跨区通勤需要适应。怕热的人最好在盛夏亲自试住。'},
+{name:'长沙',en:'CHANGSHA',p:{pace:52,career:57,cost:30,warmth:64,social:98,nature:38,culture:66,order:40},persona:'快乐充电站',tag:'生活不必等成功以后才开始。',summary:'你需要高浓度快乐、真实社交和轻一些的生活负担。长沙会用夜宵、朋友与内容感提醒你：日子本身就值得庆祝。',reasons:['娱乐浓度高','成本相对友好','年轻表达活跃'],tradeoff:'夏热冬湿、热门区域拥挤，以及部分行业岗位密度有限。适合生活，不等于自动适合你的职业。'},
+{name:'重庆',en:'CHONGQING',p:{pace:48,career:58,cost:24,warmth:70,social:96,nature:72,culture:64,order:32},persona:'热烈叙事者',tag:'山城不走直线，你的人生也不必。',summary:'你喜欢有性格、有烟火、有戏剧张力的地方。重庆的立体地形和热烈人情，会让日常像一部持续更新的城市电影。',reasons:['生活成本友好','山水与城市交叠','人情热烈直接'],tradeoff:'坡地出行、湿热天气和不同区域的通勤差异非常明显。住在哪里，几乎决定你体验的是哪一个重庆。'},
+{name:'厦门',en:'XIAMEN',p:{pace:24,career:42,cost:74,warmth:90,social:45,nature:96,culture:82,order:78},persona:'海风慢行者',tag:'把紧绷的自己，交还给海风。',summary:'你把气候、自然与精神舒适放在很高的位置。厦门适合小而美的日常：步行、海边、审美与不被打扰的关系。',reasons:['海边生活半径','城市尺度舒适','文艺与边界兼具'],tradeoff:'房价与岗位密度并不总成正比，旅游旺季也会挤压日常。最好先确认收入来源，再把慢生活变成长期生活。'},
+{name:'青岛',en:'QINGDAO',p:{pace:34,career:52,cost:48,warmth:30,social:52,nature:95,culture:70,order:72},persona:'清爽秩序派',tag:'海风有分寸，四季也有边界。',summary:'你偏爱清爽、安静、四季分明，也希望自然触手可及。青岛不会一直催促你，却能让生活保持体面和层次。',reasons:['山海就在日常','四季分明','节奏舒展'],tradeoff:'冬季海风、城市南北跨度和岗位结构需要认真评估。选择靠近工作与轨交的区域会显著提升体验。'},
+{name:'苏州',en:'SUZHOU',p:{pace:42,career:66,cost:66,warmth:50,social:36,nature:66,culture:94,order:90},persona:'温润长期主义者',tag:'园林的慢，园区的快，你都懂。',summary:'你喜欢稳定、秩序和有历史质感的生活，也不愿完全放弃产业机会。苏州的双重速度，适合温和但很有长期规划的你。',reasons:['秩序感强','文化底蕴深','产业与生活兼容'],tradeoff:'湿冷、跨区通勤和新老城区体验割裂需要适应。先分清你更需要“园林苏州”还是“园区苏州”。'},
+{name:'昆明',en:'KUNMING',p:{pace:18,career:34,cost:26,warmth:72,social:60,nature:98,culture:74,order:44},persona:'四季自然派',tag:'阳光和花，比日程表更懂你。',summary:'你最看重身体舒适、自然半径与松弛日常。昆明适合把生活过成连续的呼吸，而不是一场永远赶不完的冲刺。',reasons:['气候温和','自然资源丰富','生活压力较轻'],tradeoff:'部分行业机会与薪资上限有限，紫外线、干湿季和高原反应也因人而异。远程或稳定收入会让匹配度更真实。'}
+];
+
+let index=0,answers=Array(questions.length).fill(null),lastResult=null;
+const $=s=>document.querySelector(s);const views=[...document.querySelectorAll('.view')];
+function show(id){views.forEach(v=>v.classList.toggle('active',v.id===id));window.scrollTo({top:0,behavior:'smooth'});}
+function saveState(){localStorage.setItem('cityMatchState',JSON.stringify({index,answers}));}
+function renderQuestion(){const q=questions[index];$('#qKicker').textContent=KICKERS[q.dim];$('#qText').textContent=q.text;$('#counter').textContent=String(index+1).padStart(2,'0')+' / '+questions.length;$('#progress').style.width=((index+1)/questions.length*100)+'%';$('#backBtn').disabled=index===0;$('#options').innerHTML=q.choices.map((o,i)=>`<button class="option ${answers[index]===i?'selected':''}" data-i="${i}"><span class="letter">${String.fromCharCode(65+i)}</span><span>${o.text}</span></button>`).join('');document.querySelectorAll('.option').forEach(b=>b.onclick=()=>selectAnswer(+b.dataset.i));}
+function selectAnswer(i){answers[index]=i;saveState();document.querySelectorAll('.option').forEach((b,n)=>b.classList.toggle('selected',n===i));setTimeout(()=>{if(index<questions.length-1){index++;renderQuestion()}else finish()},170);}
+function start(fresh=true){if(fresh){index=0;answers=Array(questions.length).fill(null);saveState()}show('quiz');renderQuestion();}
+function finish(){const prefs={};Object.keys(DIMENSIONS).forEach(d=>{const vals=questions.map((q,i)=>q.dim===d&&answers[i]!=null?q.choices[answers[i]].value:null).filter(v=>v!=null);prefs[d]=Math.round(vals.reduce((a,b)=>a+b,0)/vals.length)});const weights={pace:1.15,career:1.2,cost:1.05,warmth:1.1,social:1,nature:1.05,culture:.95,order:.9};const ranked=cities.map(c=>{let diff=0,total=0;Object.keys(weights).forEach(d=>{diff+=Math.abs(prefs[d]-c.p[d])*weights[d];total+=weights[d]});const similarity=1-diff/(total*100);let score=Math.round(70+similarity*27);return{...c,score:Math.max(70,Math.min(97,score))}}).sort((a,b)=>b.score-a.score);lastResult={prefs,ranked};show('loading');setTimeout(()=>renderResult(),1550);localStorage.removeItem('cityMatchState');}
+function renderResult(){const {prefs,ranked}=lastResult,c=ranked[0];$('#cityName').textContent=c.name;$('#cityEn').textContent=c.en;$('#tagline').textContent='“'+c.tag+'”';$('#summary').textContent=c.summary;$('#persona').textContent='城市人格 · '+c.persona;$('#matchScore').textContent=c.score;$('#reasons').innerHTML=c.reasons.map((r,i)=>`<div class="reason"><b>0${i+1}</b>${r}</div>`).join('');$('#tradeoff').textContent=c.tradeoff;$('#bars').innerHTML=Object.entries(prefs).map(([d,v])=>`<div class="bar-row"><span>${DIMENSIONS[d]}</span><div class="bar-bg"><div class="bar-fill" style="width:${v}%"></div></div><b>${v}</b></div>`).join('');$('#top3').innerHTML=ranked.slice(1,3).map((x,i)=>`<div class="rank"><span>备选 0${i+2}</span><strong>${x.name} · ${x.score}%</strong><p>${x.tag}</p></div>`).join('');show('result');}
+function shareText(){const c=lastResult.ranked[0],alts=lastResult.ranked.slice(1,3).map(x=>x.name).join('、');return `测完发现，最适合我定居的城市是${c.name}，契合度${c.score}%！\n${c.tag}\n另外两座备选城市是${alts}。你会测出哪里？`;}
+function roundedRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill();}
+function wrap(ctx,text,x,y,maxWidth,lineHeight,maxLines=99){const chars=[...text];let line='',lines=[];for(const ch of chars){if(ctx.measureText(line+ch).width>maxWidth){lines.push(line);line=ch}else line+=ch}if(line)lines.push(line);lines.slice(0,maxLines).forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));}
+function downloadCard(){const c=lastResult.ranked[0],cv=$('#cardCanvas'),ctx=cv.getContext('2d');ctx.fillStyle='#f5f0e6';ctx.fillRect(0,0,1080,1440);ctx.fillStyle='#153b36';roundedRect(ctx,70,70,940,1120,44);ctx.strokeStyle='rgba(255,255,255,.16)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(890,190,230,0,Math.PI*2);ctx.stroke();ctx.fillStyle='#efbd6a';ctx.font='700 24px sans-serif';ctx.fillText('CITY COMPASS · 城市罗盘',130,150);ctx.fillStyle='#fff';ctx.font='700 42px "Microsoft YaHei"';ctx.fillText('最适合我定居的城市',130,245);ctx.font='700 160px "STSong","Microsoft YaHei"';ctx.fillText(c.name,120,445);ctx.fillStyle='#efbd6a';ctx.font='28px sans-serif';ctx.fillText(c.en,130,505);ctx.fillStyle='#fff';ctx.font='300 112px sans-serif';ctx.fillText(c.score+'%',700,425);ctx.font='24px sans-serif';ctx.fillText('生活偏好契合度',720,470);ctx.font='700 36px "STSong","Microsoft YaHei"';wrap(ctx,c.tag,130,625,800,56,2);ctx.fillStyle='rgba(255,255,255,.8)';ctx.font='28px "Microsoft YaHei"';wrap(ctx,c.summary,130,755,800,50,5);ctx.fillStyle='#c94e38';roundedRect(ctx,70,1240,940,130,24);ctx.fillStyle='#fff';ctx.font='700 32px "Microsoft YaHei"';ctx.fillText('哪座城市最适合你定居？',125,1300);ctx.font='24px "Microsoft YaHei"';ctx.fillText('40 道生活选择 · 找到更像你的日子',125,1344);cv.toBlob(blob=>{if(!blob)return;const url=URL.createObjectURL(blob),a=document.createElement('a');a.download=`我的理想定居城市-${c.name}.png`;a.href=url;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)},'image/png');}
+$('#startBtn').onclick=()=>start(true);$('#resumeBtn').onclick=()=>{const s=JSON.parse(localStorage.getItem('cityMatchState'));index=s.index;answers=s.answers;start(false)};$('#backBtn').onclick=()=>{if(index>0){index--;saveState();renderQuestion()}};$('#restartBtn').onclick=()=>{if(confirm('重新开始会清空本次结果，确定吗？'))start(true)};$('#saveCardBtn').onclick=downloadCard;$('#copyBtn').onclick=async()=>{await navigator.clipboard.writeText(shareText());$('#copyBtn').textContent='已复制';setTimeout(()=>$('#copyBtn').textContent='复制分享文案',1400)};
+try{const s=JSON.parse(localStorage.getItem('cityMatchState'));if(s&&Array.isArray(s.answers)&&s.answers.some(x=>x!==null))$('#resumeBtn').hidden=false}catch(e){}
+</script>
+</body>
+</html>
